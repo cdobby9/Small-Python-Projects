@@ -7,8 +7,10 @@ def is_prime(j):
     return 1
 
 def nth_prime(n):
-    total = 0
-    for i in range(1, 2**n + 1):
-        inner_sum = sum(is_prime(j) for j in range(1, i + 1))
-        total += math.floor(n / (1 + inner_sum))
-    return total + 1
+    count_primes = 0
+    i = 1
+    while count_primes < n:
+        i += 1
+        if is_prime(i):
+            count_primes += 1
+    return i

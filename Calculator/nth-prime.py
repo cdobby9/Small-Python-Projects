@@ -1,9 +1,11 @@
 import math
 
 def is_prime(j):
-    if j < 2: return 0
+    if j < 2:
+        return 0
     for k in range(2, int(j**0.5) + 1):
-        if j % k == 0: return 0
+        if j % k == 0:
+            return 0
     return 1
 
 def nth_prime(n):
@@ -14,3 +16,6 @@ def nth_prime(n):
         if is_prime(i):
             count_primes += 1
     return i
+
+n = int(input("Enter n: "))
+print("The", n, "th prime is", nth_prime(n))

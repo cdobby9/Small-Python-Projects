@@ -9,20 +9,30 @@ def parse_number(s):
     else:
         return float(s)
 
-n_str = input("Enter n (can be a fraction or negative): ")
+def to_fraction(x, max_denom=1000):
+    sign = "-" if x < 0 else ""
+    x = abs(x)
+    best_num = 0
+    best_den = 1
+    min_error = 1e9
+
+    for d in range(1, max_denom + 1):
+        n = round(x * d)
+        error = abs(x - n/d)
+        if error < min_error:
+            min_error = error
+            best_num = n
+            best_den = d
+    if best_den == 1:
+        return f"{sign}{best_num}"
+    else:
+        return f"{sign}{best_num}/{best_den}"
+
+n_str = input("Enter n (can be a fraction like 1/2 or -3/4): ")
 sign = input("Enter sign (+ or -): ")
 
 n = parse_number(n_str)
-
-if sign == "+":
-    s = 1
-elif sign == "-":
-    s = -1
-else:
-    print("No sign, assuming +")
-    s = 1
-
-
+s = 1 if sign == "+" else -1
 
 # ^0
 term1 = 1
@@ -40,4 +50,4 @@ term4 = n * (n - 1) * (n - 2) / 6 * (s ** 3)
 term5 = n * (n - 1) * (n - 2) * (n - 3) / 24 * (s ** 4)
 
 print("\nExpansion:")
-print(f"= {term1:.4f} + ({term2:.4f})x + ({term3:.4f})x² + ({term4:.4f})x³ + ({term5:.4f})x⁴")
+print(f"= {to_fraction(term1)} + ({to_fraction(term2)})x + ({to_fraction(term3)})x² + ({to_fraction(term4)})x³ + ({to_fraction(term5)})x⁴")

@@ -1,8 +1,18 @@
 print("Binomial Expansion: (1 ± x)^n up to x^4")
 print()
 
-n = float(input("Enter n (can be negative): "))
+def parse_number(s):
+    s = s.strip()
+    if "/" in s:
+        num, den = s.split("/")
+        return float(num) / float(den)
+    else:
+        return float(s)
+
+n_str = input("Enter n (can be a fraction or negative): ")
 sign = input("Enter sign (+ or -): ")
+
+n = parse_number(n_str)
 
 if sign == "+":
     s = 1
@@ -11,6 +21,8 @@ elif sign == "-":
 else:
     print("No sign, assuming +")
     s = 1
+
+
 
 # ^0
 term1 = 1

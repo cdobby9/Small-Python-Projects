@@ -1,4 +1,4 @@
-print("Binomial Expansion: (1 ± x)^n up to x^4")
+print("Binomial Expansion: (1 + or - x)^n up to x^4")
 print()
 
 def parse_number(s):
@@ -24,9 +24,9 @@ def to_fraction(x, max_denom=1000):
             best_num = n
             best_den = d
     if best_den == 1:
-        return f"{sign}{best_num}"
+        return sign + str(best_num)
     else:
-        return f"{sign}{best_num}/{best_den}"
+        return sign + str(best_num) + "/" + str(best_den)
 
 n_str = input("Enter n (can be a fraction like 1/2 or -3/4): ")
 sign = input("Enter sign (+ or -): ")
@@ -50,4 +50,9 @@ term4 = n * (n - 1) * (n - 2) / 6 * (s ** 3)
 term5 = n * (n - 1) * (n - 2) * (n - 3) / 24 * (s ** 4)
 
 print("\nExpansion:")
-print(f"= {to_fraction(term1)} + ({to_fraction(term2)})x + ({to_fraction(term3)})x² + ({to_fraction(term4)})x³ + ({to_fraction(term5)})x⁴")
+print("= " + to_fraction(term1)
+      + " + (" + to_fraction(term2) + ")x"
+      + " + (" + to_fraction(term3) + ")x^2"
+      + " + (" + to_fraction(term4) + ")x^3"
+      + " + (" + to_fraction(term5) + ")x^4")
+

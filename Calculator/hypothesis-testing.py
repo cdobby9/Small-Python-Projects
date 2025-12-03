@@ -60,13 +60,13 @@ def critical_region_two_tailed(n, p, alpha):
 
 
 
-print("Binomial Hypothesis Testing")
+print("Binomial Hypothesis Testing \nX ~ B(n, p)")
 
-n = int(input("Enter n (number of trials): "))
-p0 = float(input("Enter p0 under H0: "))
+n = int(input("Enter n: "))
+p0 = float(input("Enter H0: "))
 x_obs = int(input("Observed successes: "))
-test_type = input("Test type? (left/right/two): ").strip().lower()
-alpha = float(input("Significance level (e.g., 0.05): "))
+test_type = input("Test type (l/r/t): ").strip().lower()
+alpha = float(input("Significance level: "))
 
 # p-value
 if test_type == "left":

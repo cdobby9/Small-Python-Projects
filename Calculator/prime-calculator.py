@@ -29,7 +29,7 @@ def prime_position(p):
         if i == p:
             return count_primes
 
-mode = input("Find nth prime or find position of a prime? (enter 'n' or 'p'): ").strip().lower()
+mode = input("find nth prime \nor \nposition of a prime \n(enter n or p): ").strip().lower()
 
 if mode == 'n':
     n = int(input("Enter n: "))

@@ -1,4 +1,4 @@
-print("Binomial Expansion: (1 + or - x)^n up to x^4")
+print("Binomial Expansion: (1+x)^n up to x^4")
 print()
 
 def parse_number(s):
@@ -28,8 +28,8 @@ def to_fraction(x, max_denom=1000):
     else:
         return sign + str(best_num) + "/" + str(best_den)
 
-n_str = input("Enter n (can be a fraction like 1/2 or -3/4): ")
-sign = input("Enter sign (+ or -): ")
+n_str = input("Enter n: ")
+sign = input("Enter Sign ")
 
 n = parse_number(n_str)
 s = 1 if sign == "+" else -1
